@@ -1,0 +1,17 @@
+body {
+    padding-top: 90px;
+    font-family: "OpenSans", sans-serif;
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main{
+    flex: 1;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
