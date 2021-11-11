@@ -5,23 +5,20 @@ import BBreadcrumb from "react-bootstrap/Breadcrumb";
 
 import { ReactComponent as LeftArrowIcon } from "../img/icons/leftArrow.svg";
 
-const Breadcrumb = ({prevLink, prevPages, active}) => {
-
-    return (
-        <StyleBreadcrumb>
-            {prevLink && 
-            <Link className="left-arrow" to={prevLink}>
-                <LeftArrowIcon />
-            </Link>}
-            {prevPages?.map((page, index)=>(
-                <BBreadcrumb.Item key={index}>
-                    {page}
-                </BBreadcrumb.Item>
-            ))}
-            {active && <BBreadcrumb.Item active>{active}</BBreadcrumb.Item>}
-        </StyleBreadcrumb>
-    )
-}
+const Breadcrumb = ({prevLink, prevPages, active}) => (
+    <StyleBreadcrumb>
+        {prevLink && 
+        <Link className="left-arrow" to={prevLink}>
+            <LeftArrowIcon />
+        </Link>}
+        {prevPages?.map((page, index)=>(
+            <BBreadcrumb.Item key={index}>
+                {page}
+            </BBreadcrumb.Item>
+        ))}
+        {active && <BBreadcrumb.Item active>{active}</BBreadcrumb.Item>}
+    </StyleBreadcrumb>
+)
 
 export default Breadcrumb
 
@@ -40,6 +37,11 @@ const StyleBreadcrumb = styled(BBreadcrumb)`
     a{
         :hover{
             color: #000 !important;
+        }
+    }
+    @media (max-width: 576px) {
+        a, li, li::before{
+            font-size: 12px;
         }
     }
 `

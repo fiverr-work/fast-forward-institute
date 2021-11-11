@@ -19,7 +19,7 @@ const Books = () => (
           My goal is to share with you what I have learnt during my life that helped me to be more
           efficient towards success.
         </Card.Text>
-        <Button as={Link} variant="primary" to="/product/1">
+        <Button as={Link} variant="primary" to="/product/1" className="w-100">
           Details
         </Button>
       </Card.Body>

@@ -14,17 +14,17 @@ const Navbar = () => {
                 <Link className="brand" to="/">Fast Forward Institute</Link>
                 <div className={menu ? "nav-links show" : "nav-links"}>
                     {menu && <CloseIcon onClick={()=>setMenu(false)}/>}
-                    <Link to="/">Home</Link>
-                    <Link to="/books">Books</Link>
+                    <Link to="/" onClick={()=>setMenu(false)}>Home</Link>
+                    <Link to="/books" onClick={()=>setMenu(false)}>Books</Link>
                     <Link to="/contact">Contact</Link>
                     <Dropdown>
                     <Dropdown.Toggle>
                         En
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item>English</Dropdown.Item>
-                        <Dropdown.Item>German</Dropdown.Item>
-                        <Dropdown.Item>Spanish</Dropdown.Item>
+                        <Dropdown.Item onClick={()=>setMenu(false)}>English</Dropdown.Item>
+                        <Dropdown.Item onClick={()=>setMenu(false)}>German</Dropdown.Item>
+                        <Dropdown.Item onClick={()=>setMenu(false)}>Spanish</Dropdown.Item>
                     </Dropdown.Menu>
                     </Dropdown>
                 </div>
@@ -125,6 +125,12 @@ const NavbarStyle = styled.nav`
                 margin-bottom: 15px;
                 padding: 15px 0;
             }
+        }
+    }
+    @media (max-width: 576px){
+        .brand{
+            font-size: 18px;
+            line-height: 25px;
         }
     }
 `
