@@ -106,6 +106,7 @@ const NavbarStyle = styled.nav`
       line-height: 25px;
       margin-right: 25px;
       background: none;
+      color: #000;
       :hover {
         color: #00c896;
       }
@@ -140,7 +141,8 @@ const NavbarStyle = styled.nav`
       background: #fff;
       flex-direction: column;
       justify-content: center;
-      > a {
+      > a,
+      button {
         margin-right: 0;
         margin-bottom: 15px;
         padding: 15px 0;

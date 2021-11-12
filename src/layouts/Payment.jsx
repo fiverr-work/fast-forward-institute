@@ -32,7 +32,9 @@ const Payment = ({ setModal, price }) => {
       </div>
       <div className="select-wrapper">
         <select>
-          <option disabled>Country</option>
+          <option selected disabled>
+            Country
+          </option>
           {Countries?.map((country, i) => (
             <option value={country.value} key={i}>
               {country.name}
