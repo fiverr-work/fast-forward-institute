@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "react-modal";
 
 import Thumbnails from "../layouts/Thumbnails";
 import Breadcrumb from "../components/Breadcrumb";
-import Button from "react-bootstrap/Button";
+import Button from "../components/Button";
+
+import Payment from "../layouts/Payment";
 
 // Tmp thumbnails
 import Thumbnail1 from "../img/thumbnails/img1.png";
@@ -12,10 +15,12 @@ import Thumbnail3 from "../img/thumbnails/img3.png";
 import Thumbnail4 from "../img/thumbnails/img4.png";
 import Thumbnail5 from "../img/thumbnails/img5.png";
 
+Modal.setAppElement("#root");
+
 const Product = () => {
+  const [modal, setModal] = useState(false);
   const price = 10;
   const thumbnails = [Thumbnail1, Thumbnail2, Thumbnail3, Thumbnail4, Thumbnail5];
-
   return (
     <>
       <Breadcrumb
@@ -46,13 +51,20 @@ const Product = () => {
               <span className="price">{price} €</span>
               <span>You can get this book for free!</span>
             </div>
-            <Button>Purchase</Button>
+            <Button onClick={() => setModal(true)}>Purchase</Button>
           </Actions>
           <p>
             I hope you learn from the book, you get tools that you could use in your every-day life
             and then you can back and buy it again for the price you consider is fair.
           </p>
         </Content>
+        <Modal
+          isOpen={modal}
+          onRequestClose={() => setModal(false)}
+          hideModal={() => setModal(false)}
+        >
+          <Payment setModal={setModal} price={price} />
+        </Modal>
       </Article>
     </>
   );
@@ -126,15 +138,8 @@ const Actions = styled.div`
     }
   }
   button {
-    background: #00c896;
-    border-color: #00c896;
-    border-radius: 15px;
-    padding: 20px;
     width: 196px;
     margin-left: 30px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
   }
   @media (max-width: 576px) {
     flex-direction: column;

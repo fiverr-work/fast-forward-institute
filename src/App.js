@@ -11,7 +11,6 @@ import Footer from "./layouts/Footer";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Books from "./pages/Books";
-import Contact from "./pages/Contact";
 import TermsConditions from "./pages/TermsConditions";
 import NotFound from "./pages/NotFound"; // not found 404 page
 
@@ -24,7 +23,6 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/product/:id" element={<Product />} />
           <Route exact path="/books" element={<Books />} />
-          <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/terms-conditions" element={<TermsConditions />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
